@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eggchos V2 Carta — Doble huevo, cero carne</title>
+<meta name="description" content="La carta de eggchos Once: huevo revuelto cremoso que chorrea, cheddar fundido, pan tibio. Clásico $8.000, con queso $8.500, mexicano $9.000. Premium: chutney, relish y hummus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="a_Retro_mascot_emblem_.jpeg">
+<style>
+:root{
+  --yolk:#FFC400; --orange:#FF6A00; --orange-deep:#E14E00;
+  --cream:#FFF6E3; --paper:#FFFEF7; --ink:#2A1600; --muted:#6E4E26; --line:#EDD9AC;
+  --green:#2F7A4D; --ease:cubic-bezier(.16,1,.3,1); --max:1280px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0; background:var(--yolk); color:var(--ink); font-family:'Outfit',sans-serif; overflow-x:hidden; -webkit-font-smoothing:antialiased}
+::selection{background:var(--ink); color:var(--yolk)}
+.wrap{max-width:var(--max); margin:0 auto; padding-left:clamp(18px,4vw,40px); padding-right:clamp(18px,4vw,40px)}
+.mono{font-family:'JetBrains Mono',monospace}
+.top{position:sticky; top:10px; z-index:50; max-width:var(--max); margin:10px auto 0; padding:0 clamp(10px,2vw,20px)}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--paper); border:2.5px solid var(--ink); border-radius:999px; padding:8px 8px 8px 16px; box-shadow:4px 4px 0 var(--ink)}
+.brand{display:flex; gap:10px; align-items:center; text-decoration:none}
+.mark{width:40px; height:40px; border-radius:50%; overflow:hidden; border:2px solid var(--ink); background:var(--orange); flex:0 0 40px}
+.mark img{width:100%; height:100%; object-fit:cover}
+.brand b{font-family:'Fraunces',serif; font-size:1.4rem; letter-spacing:-.03em}
+.brand small{display:block; font-size:.62rem; letter-spacing:.16em; color:var(--orange-deep); font-weight:800}
+.links{display:flex; gap:20px}
+.links a{text-decoration:none; font-weight:700; font-size:.92rem; color:#5a3d16}
+.links a:hover{color:var(--orange-deep)}
+.btn{display:inline-flex; align-items:center; gap:10px; border-radius:999px; padding:14px 24px; min-height:48px; font-weight:800; text-decoration:none; border:2.5px solid var(--ink); cursor:pointer; transition:transform .35s var(--ease), box-shadow .35s var(--ease); white-space:nowrap; font-family:'Outfit',sans-serif}
+.btn:active{transform:scale(.98)}
+.btn-k{background:var(--ink); color:var(--cream); box-shadow:4px 4px 0 var(--orange)}
+.btn-k:hover{transform:translate(-1px,-2px)}
+.btn-w{background:var(--paper); color:var(--ink)}
+.btn-o{background:var(--orange); color:#fff; border-color:var(--ink); box-shadow:4px 4px 0 var(--ink)}
+.btn-o:hover{transform:translate(-1px,-2px)}
+.burger{display:none; background:var(--paper); border:2.5px solid var(--ink); border-radius:12px; width:44px; height:44px; font-size:1.2rem; cursor:pointer}
+.hero{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(24px,4vw,56px); align-items:center; padding-top:clamp(26px,4vw,54px); padding-bottom:8px; min-height:92dvh}
+.flag{display:inline-flex; gap:8px; align-items:center; background:var(--ink); color:var(--yolk); border-radius:999px; padding:9px 16px; font-size:.76rem; font-weight:800; letter-spacing:.1em}
+.flag .live{width:8px; height:8px; border-radius:50%; background:var(--yolk); animation:pl 1.8s infinite}
+@keyframes pl{50%{transform:scale(1.5)}}
+h1{font-family:'Fraunces',serif; font-weight:900; letter-spacing:-.045em; line-height:.9; font-size:clamp(3rem,7vw,6.2rem); margin:18px 0 14px}
+h1 em{font-style:italic; color:var(--paper); text-shadow:3px 3px 0 var(--ink)}
+.lead{font-size:1.1rem; line-height:1.6; max-width:54ch; color:#4a2f0e; margin:0 0 20px}
+.lead strong{color:var(--ink)}
+.ctas{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px}
+.crave{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:6px}
+.crave div{background:var(--paper); border:2px solid var(--ink); border-radius:16px; padding:12px 14px; font-size:.88rem; font-weight:700; box-shadow:3px 3px 0 var(--ink)}
+.crave small{display:block; font-weight:500; color:var(--muted); font-size:.8rem}
+.dish{position:relative; display:flex; justify-content:center}
+.dish .plate{position:relative; width:min(500px,100%); background:var(--orange); border:3px solid var(--ink); border-radius:44px; overflow:hidden; box-shadow:10px 10px 0 var(--ink)}
+.dish .plate img{width:100%; aspect-ratio:.94; object-fit:cover; display:block}
+.dish .tag-price{position:absolute; top:16px; right:16px; background:var(--ink); color:var(--yolk); font-family:'JetBrains Mono',monospace; font-weight:700; border-radius:999px; padding:10px 18px; font-size:1rem; transform:rotate(4deg)}
+.stk{position:absolute; background:var(--paper); border:2.5px solid var(--ink); border-radius:999px; padding:10px 16px; font-weight:800; font-size:.85rem; box-shadow:3px 3px 0 var(--ink); animation:fl 5s ease-in-out infinite}
+.stk.a{left:-14px; top:14%} .stk.b{right:-8px; bottom:18%; animation-delay:-2.5s; background:var(--ink); color:var(--yolk)}
+@keyframes fl{50%{translate:0 -10px}}
+.drip{display:block; width:100%; height:34px; margin:0}
+.band{background:var(--ink); color:var(--cream); overflow:hidden; white-space:nowrap; border-top:3px solid var(--ink); border-bottom:3px solid var(--ink)}
+.band .track{display:inline-flex; padding:13px 0; animation:mq 22s linear infinite}
+.band span{font-family:'Fraunces',serif; font-weight:900; font-size:1.05rem; padding:0 16px; color:var(--yolk)}
+.band span i{color:var(--orange); font-style:normal; padding-right:16px}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:clamp(50px,6vw,88px) 0}
+.sec-orange{background:var(--orange); border-top:3px solid var(--ink); border-bottom:3px solid var(--ink)}
+.sec-cream{background:var(--cream); border-top:3px solid var(--ink)}
+.k{font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.2em; font-weight:700; color:var(--ink); margin-bottom:10px; display:flex; align-items:center; gap:10px}
+.k::before{content:""; width:26px; height:3px; background:var(--ink); display:inline-block}
+.sec-orange .k{color:#fff} .sec-orange .k::before{background:#fff}
+h2{font-family:'Fraunces',serif; font-size:clamp(2rem,4.4vw,3.6rem); letter-spacing:-.04em; line-height:.95; margin:0 0 10px}
+h2 em{font-style:italic}
+.sec-orange h2{color:#fff} .sec-orange h2 em{color:var(--yolk)}
+.sub{line-height:1.65; max-width:64ch; color:#5a3a12}
+.sec-orange .sub{color:#FFE3C2}
+.menu{margin-top:20px; border-top:3px solid var(--ink)}
+.sec-orange .menu{border-color:#fff}
+.item{display:grid; grid-template-columns:1fr auto; gap:4px 18px; padding:20px 4px; border-bottom:3px solid var(--ink); align-items:baseline}
+.sec-orange .item{border-color:#fff}
+.item h3{margin:0; font-family:'Fraunces',serif; font-size:clamp(1.4rem,2.6vw,1.9rem); letter-spacing:-.02em}
+.item h3 .flagnew{font-family:'JetBrains Mono',monospace; font-size:.68rem; background:var(--ink); color:var(--yolk); border-radius:999px; padding:5px 12px; vertical-align:middle; margin-left:10px; letter-spacing:.1em}
+.item p{margin:6px 0 0; line-height:1.55; max-width:60ch}
+.sec-orange .item p{color:#5a2500}
+.item .pr{text-align:right; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.4rem; white-space:nowrap}
+.item .pr small{display:block; font-size:.72rem; font-weight:500; opacity:.7}
+.prem{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:20px}
+.pcard{background:var(--paper); border:2.5px solid var(--ink); border-radius:22px; padding:20px; box-shadow:5px 5px 0 var(--ink)}
+.pcard .plus{font-family:'JetBrains Mono',monospace; font-weight:700; background:var(--orange); color:#fff; border-radius:999px; padding:6px 14px; display:inline-block; font-size:.85rem; border:2px solid var(--ink)}
+.pcard h3{font-family:'Fraunces',serif; margin:10px 0 6px; font-size:1.35rem}
+.pcard p{margin:0 0 10px; color:#5a4d38; font-size:.92rem; line-height:1.55}
+.mini{font-size:.72rem; font-weight:800; letter-spacing:.08em; border:1.5px solid var(--ink); border-radius:999px; padding:4px 10px; background:#fff; margin-right:6px; display:inline-block; margin-bottom:6px}
+.mini.g{background:#E3F2E6; border-color:var(--green); color:#1e5734}
+.combos{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:20px}
+.combo{background:var(--ink); color:var(--cream); border-radius:22px; padding:22px; border:2.5px solid var(--ink)}
+.combo.sun{background:var(--yolk); color:var(--ink); box-shadow:6px 6px 0 var(--ink)}
+.combo h4{margin:0 0 4px; font-family:'JetBrains Mono',monospace; font-size:.75rem; letter-spacing:.14em; color:var(--orange)}
+.combo.sun h4{color:var(--orange-deep)}
+.combo .big{font-family:'Fraunces',serif; font-size:2rem; margin:0; letter-spacing:-.02em}
+.combo p{font-size:.9rem; line-height:1.6; opacity:.85; margin:8px 0 0}
+.combo .mono{font-size:.76rem; color:var(--yolk)} .combo.sun .mono{color:var(--orange-deep)}
+.matrix{width:100%; border-collapse:collapse; margin-top:18px; background:var(--paper); border:2.5px solid var(--ink); border-radius:18px; overflow:hidden; font-size:.9rem}
+.matrix th,.matrix td{padding:11px 13px; text-align:left; border-bottom:1.5px solid var(--line)}
+.matrix th{font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.12em; color:var(--muted)}
+.matrix tr:last-child td{border-bottom:0}
+.b{display:inline-block; font-size:.68rem; font-weight:800; letter-spacing:.07em; border-radius:999px; padding:4px 10px; border:1.5px solid var(--ink)}
+.b-ov{background:#E3F2E6; border-color:var(--green); color:#1e5734}
+.b-sg{background:#FFF1C4; border-color:#8a5f00; color:#6b4a00}
+.b-no{background:#FDE3D3; border-color:var(--orange-deep); color:var(--orange-deep)}
+.orderbar{position:sticky; bottom:12px; z-index:40; margin-top:22px}
+.orderbox{background:var(--paper); border:2.5px solid var(--ink); border-radius:22px; box-shadow:6px 6px 0 var(--ink); padding:14px 16px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+.pick{display:flex; gap:8px; flex-wrap:wrap}
+.pick button{border:2px solid var(--ink); background:#fff; border-radius:999px; padding:10px 16px; font-weight:800; cursor:pointer; min-height:44px; font-family:'Outfit',sans-serif; font-size:.88rem}
+.pick button.on{background:var(--ink); color:var(--yolk)}
+.prem-check{display:flex; gap:8px; flex-wrap:wrap; font-size:.82rem; font-weight:700}
+.prem-check label{border:1.5px dashed var(--ink); border-radius:999px; padding:8px 13px; cursor:pointer; display:flex; gap:7px; align-items:center; background:#fff}
+.prem-check input{width:17px; height:17px; accent-color:var(--orange-deep)}
+.totalbox{display:flex; gap:14px; align-items:center}
+.totalbox b{font-family:'Fraunces',serif; font-size:2rem; letter-spacing:-.03em}
+.revs{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
+.rev{background:var(--paper); border:2.5px solid var(--ink); border-radius:20px; padding:18px; box-shadow:4px 4px 0 var(--ink)}
+.rev p{margin:0 0 8px; line-height:1.55; font-size:.93rem; color:#4d4130}
+.visit{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px}
+.info{background:var(--paper); border:2.5px solid var(--ink); border-radius:22px; padding:22px}
+.info .lr{border-top:1.5px solid var(--line); padding:11px 0; color:#5a4d38; font-size:.93rem; line-height:1.55}
+.map{border:2.5px solid var(--ink); border-radius:22px; overflow:hidden; min-height:360px; display:flex; flex-direction:column; background:#fff}
+.map iframe{flex:1; min-height:300px; border:0; width:100%}
+.mapfoot{background:var(--ink); color:var(--yolk); padding:13px 16px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center; font-weight:800}
+.faq{margin-top:16px; background:var(--paper); border:2.5px solid var(--ink); border-radius:20px; overflow:hidden}
+.fq{border-bottom:1.5px solid var(--line)} .fq:last-child{border-bottom:0}
+.fq button{width:100%; background:none; border:0; text-align:left; padding:17px 19px; font-weight:800; font-size:.99rem; display:flex; justify-content:space-between; gap:10px; cursor:pointer; font-family:'Outfit',sans-serif; color:var(--ink)}
+.fa{max-height:0; overflow:hidden; transition:max-height .5s var(--ease)}
+.fa p{margin:0; padding:0 19px 19px; color:#5a4d38; line-height:1.6}
+.final{background:var(--ink); color:var(--cream); border-radius:26px; padding:clamp(26px,4vw,48px); display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-top:18px}
+.final h2{color:var(--cream)} .final h2 em{color:var(--yolk)}
+footer{padding:22px 0 100px; font-size:.88rem; color:#5a3a12}
+.foot{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; border-top:2.5px solid var(--ink); padding-top:14px}
+.foot a{color:var(--ink); font-weight:700; text-decoration:none}
+.rv{opacity:0; translate:0 16px; transition:opacity .7s var(--ease), translate .7s var(--ease); transition-delay:calc(var(--i,0)*90ms)}
+.rv.in{opacity:1; translate:0 0}
+@media(max-width:1000px){.hero,.visit{grid-template-columns:1fr} .combos,.prem,.revs{grid-template-columns:1fr} .links{display:none} .burger{display:block} .nav.open .links{display:flex; position:absolute; top:66px; left:10px; right:10px; background:var(--paper); border:2.5px solid var(--ink); border-radius:18px; padding:14px; flex-direction:column} h1{font-size:clamp(2.7rem,13vw,3.8rem)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important} .rv{opacity:1; translate:none}}
+.strip3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px}
+.shot{margin:0; border:2.5px solid var(--ink); border-radius:20px; overflow:hidden; background:var(--paper); box-shadow:5px 5px 0 var(--ink)}
+.shot:nth-child(1){transform:rotate(-.7deg)} .shot:nth-child(2){transform:rotate(.8deg)} .shot:nth-child(3){transform:rotate(-.4deg)}
+.shot img{width:100%; aspect-ratio:1; object-fit:cover; display:block}
+.shot figcaption{padding:10px 14px; font-size:.82rem; font-weight:800; border-top:2.5px solid var(--ink)}
+.shot figcaption small{display:block; font-weight:500; color:#6b4a1e}
+@media(max-width:1000px){.strip3{grid-template-columns:1fr}}
+@media(max-width:640px){table.matrix{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch} table.matrix tbody{display:table; width:100%; min-width:540px}}
+@media(max-width:420px){.top .btn{display:none}}
+</style>
+</head>
+<body>
+<script src="gate.js"></script>
+<div class="top"><nav class="nav" id="nav">
+  <a class="brand" href="#top"><span class="mark"><img src="a_Retro_mascot_emblem_.jpeg" alt="eggchos"></span><span><b>eggchos</b><small>V2 CARTA · ONCE</small></span></a>
+  <div class="links"><a href="#carta">Carta</a><a href="#premium">Premium</a><a href="#combos">Combos</a><a href="#veni">Vení</a></div>
+  <div style="display:flex; gap:10px; align-items:center"><a class="btn btn-k" style="min-height:44px; padding:10px 18px" href="https://wa.me/5491100000000?text=Hola%20eggchos!%20Quiero%20pedir" target="_blank" rel="noopener">Pedir</a><button class="burger" id="bg">☰</button></div>
+</nav></div>
+
+<main id="top">
+<header class="wrap hero">
+  <div>
+    <span class="flag rv in"><span class="live"></span> HOY 12–23 H · HECHO AL MOMENTO EN ONCE</span>
+    <h1 class="rv in" style="--i:1">Doble huevo,<br><em>cero carne.</em></h1>
+    <p class="lead rv in" style="--i:2">Huevo revuelto <strong>cremoso y tibio</strong> moldeado como salchicha, pan de papa que se tuesta en manteca, cheddar que cae por los costados y papas que hacen <strong>croc</strong>. Sin carne. Sin espera. Sin humo.</p>
+    <div class="ctas rv in" style="--i:3"><a class="btn btn-k" href="#carta">Quiero ver la carta</a><a class="btn btn-w" href="https://wa.me/5491100000000?text=Hola%20eggchos!%20Quiero%20pedir" target="_blank" rel="noopener">Pedir por WhatsApp</a></div>
+    <div class="crave rv in" style="--i:4">
+      <div>2 huevos por eggcho<small>revuelto babé, dorado fuera</small></div>
+      <div>4.8 ★ · 1.237 reseñas<small>los de Once ya eligieron</small></div>
+      <div>Despacho ±3 min<small>pet-friendly · ovo-veg</small></div>
+    </div>
+  </div>
+  <div class="dish rv in" style="--i:2">
+    <div class="plate"><img src="a_A_playful_1930s_rubb.png" alt="Eggcho de huevo revuelto en pan tibio"><span class="tag-price">desde $8.000</span></div>
+    <span class="stk a">100% HUEVO REAL</span><span class="stk b">PAN TIBIO · CHEDDAR QUE CHORREA</span>
+  </div>
+</header>
+
+<svg class="drip" viewBox="0 0 1440 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 H1440 V12 C1360,30 1300,8 1240,18 C1180,28 1120,10 1060,20 C1000,30 940,8 880,18 C820,28 760,10 700,20 C640,30 580,8 520,18 C460,28 400,10 340,20 C280,30 220,8 160,18 C100,28 40,10 0,20 Z" fill="#FF6A00"/></svg>
+<div class="band"><div class="track"><span>CHEDDAR QUE CHORREA <i>●</i> HUEVO TIBIO <i>●</i> PAN CON MANTECA <i>●</i> PAPAS QUE HACEN CROC <i>●</i> DESDE $8.000 <i>●</i>&nbsp;</span><span>CHEDDAR QUE CHORREA <i>●</i> HUEVO TIBIO <i>●</i> PAN CON MANTECA <i>●</i> PAPAS QUE HACEN CROC <i>●</i> DESDE $8.000 <i>●</i>&nbsp;</span></div></div>
+
+<section class="sec-orange" id="carta"><div class="wrap">
+  <div class="k">01 · LA CARTA</div>
+  <h2>Pedí por <em>antojo,</em> no por precio.</h2>
+  <p class="sub">Tres escalones honestos: la base clásica, los de queso fundido y el de palta. El precio sube solo cuando el ingrediente cuesta más.</p>
+  <div class="menu">
+    <div class="item rv"><div><h3>Clásico Once</h3><p>Huevo cremoso + mostaza + ketchup + lluvia de papas + verdeo fresco. El que pide todo el barrio.</p></div><div class="pr">$8.000<small>el de todos los días</small></div></div>
+    <div class="item rv" style="--i:1"><div><h3>Cheddar Fundido</h3><p>Doble cheddar derretido + cebolla crispy + barbacoa ahumada. Cada mordisco chorrea.</p></div><div class="pr">$8.500<small>+ queso fundido</small></div></div>
+    <div class="item rv" style="--i:2"><div><h3>Criollo</h3><p>Provoleta fundida + chimichurri + morrón asado. Patria, parrilla y huevo.</p></div><div class="pr">$8.500<small>+ provoleta</small></div></div>
+    <div class="item rv" style="--i:3"><div><h3>Mexicano de Balvanera <span class="flagnew">EL MÁS LLENADOR</span></h3><p>Guacamole + jalapeños + criolla + cilantro + lima. Pica rico; la palta justifica los $9.000.</p></div><div class="pr">$9.000<small>+ guacamole</small></div></div>
+  </div>
+
+  <div class="strip3">
+    <figure class="shot rv"><img src="b_Retro_mascot_emblem_.png" alt="Eggcho clásico recién salido de la plancha"><figcaption>Recién salido de la plancha<small>pan tibio + huevo dorado</small></figcaption></figure>
+    <figure class="shot rv" style="--i:1"><img src="seedream-5.0-pro_a_generá_un_logo_color.jpeg" alt="La salchicha de huevo de eggchos"><figcaption>La salchicha es huevo<small>revuelto cremoso, 2 por eggcho</small></figcaption></figure>
+    <figure class="shot rv" style="--i:2"><img src="b_generá_un_logo_color.jpeg" alt="Mascota eggchos dando el aprobado"><figcaption>Aprobado por la casa<small>mostrador de Rivadavia 3085</small></figcaption></figure>
+  </div>
+
+  <div id="premium" class="prem">
+    <div class="pcard rv"><span class="plus">PREMIUM +$1.500</span><h3>Chutney casero</h3><p>Tomate y manzana caramelizados con vinagre y especias. Agridulce, tibio, casero de verdad.</p><span class="mini g">OVO-VEG</span><span class="mini g">SIN TACC</span></div>
+    <div class="pcard rv" style="--i:1"><span class="plus">PREMIUM +$1.500</span><h3>Relish de pepinos</h3><p>Pepinos agridulces picados con mostaza en grano. Fresco, crocante, levanta cualquier eggcho.</p><span class="mini g">OVO-VEG</span><span class="mini g">SIN TACC</span></div>
+    <div class="pcard rv" style="--i:2"><span class="plus">PREMIUM +$1.500</span><h3>Hummus casero</h3><p>Garbanzo batido a diario con tahini, limón y ajo. Cremoso, llena más, combina con todo.</p><span class="mini g">OVO-VEG</span><span class="mini g">SIN TACC</span></div>
+  </div>
+</div></section>
+
+<section class="sec-cream" id="combos"><div class="wrap">
+  <div class="k">02 · COMBOS SIN LETRA CHICA</div>
+  <h2>La cuenta <em>te cierra.</em></h2>
+  <p class="sub">Base $8.000–$9.000 + papas ($3.000) + bebida ($4.000) = $15.000–$16.000 por separado. El combo lo deja en <strong>$15.000</strong> siempre. El doble es promo de parejas.</p>
+  <div class="combos">
+    <div class="combo sun rv"><h4>COMBO · $15.000</h4><p class="big">Eggcho + papas + bebida</p><p>A elección. Ahorrás $500 a $1.500 según base. El almuerzo completo de Once.</p><p class="mono">SIEMPRE CONVIENE</p></div>
+    <div class="combo rv" style="--i:1"><h4>PROMO PAREJAS · $16.700</h4><p class="big">Doble + 2 bebidas</p><p>2 clásicos ($16.000) + 2 bebidas ($8.000) = $24.000 → $16.700. Sin papas, solo clásicos, retiro/mostrador.</p><p class="mono">AHORRÁS $7.300</p></div>
+    <div class="combo rv" style="--i:2"><h4>EXTRAS</h4><p class="big">Huevo +$2.000</p><p>Otra salchicha de huevo entera. Pan sin TACC +$1.000. Bebidas desde $4.000 · Flan $5.000. Premium +$1.500 c/u.</p><p class="mono">AGRANDÁ BARATO</p></div>
+  </div>
+
+  <table class="matrix rv">
+    <tr><th>TOPPING</th><th>OVO-VEG</th><th>SIN TACC</th></tr>
+    <tr><td>Huevo base · Quesos · Criolla · Chimi · Guaca · Jalapeños · Morrón · Verdeo</td><td><span class="b b-ov">OV SÍ</span></td><td><span class="b b-sg">SG SÍ</span></td></tr>
+    <tr><td><strong>Chutney · Relish · Hummus (premium +$1.500)</strong></td><td><span class="b b-ov">OV SÍ</span></td><td><span class="b b-sg">SG SÍ</span></td></tr>
+    <tr><td>Mostaza · Ketchup · Barbacoa · Mayo de huevo</td><td><span class="b b-ov">OV SÍ</span></td><td><span class="b b-sg">SG* CONSULTAR</span></td></tr>
+    <tr><td>Papas pay · Cebolla crispy · Pan común · Flan · Cerveza</td><td><span class="b b-ov">OV SÍ</span></td><td><span class="b b-no">CON GLUTEN</span></td></tr>
+  </table>
+
+  <div class="orderbar rv"><div class="orderbox" style="width:100%">
+    <div><div class="mono" style="font-size:.7rem; letter-spacing:.14em; color:var(--orange-deep)">ARMÁ Y PEDÍ · SE CALCULA SOLO</div>
+      <div class="pick" id="bases" style="margin-top:8px"><button class="on" data-p="8000" data-n="Clásico">Clásico $8.000</button><button data-p="8500" data-n="Queso">Queso $8.500</button><button data-p="9000" data-n="Mexicano">Mexicano $9.000</button></div>
+      <div class="prem-check" style="margin-top:8px">
+        <label><input type="checkbox" id="cC"> Combo +$7.000→$15.000 cerrado</label>
+        <label><input type="checkbox" class="pr" value="1500"> Chutney +$1.500</label>
+        <label><input type="checkbox" class="pr" value="1500"> Relish +$1.500</label>
+        <label><input type="checkbox" class="pr" value="1500"> Hummus +$1.500</label>
+        <label><input type="checkbox" id="cX"> Extra huevo +$2.000</label>
+      </div>
+    </div>
+    <div class="totalbox"><b id="t">$8.000</b><a class="btn btn-o" id="go" href="https://wa.me/5491100000000" target="_blank" rel="noopener">Pedir →</a></div>
+  </div></div>
+
+  <div class="revs">
+    <div class="rev rv"><p>“El cheddar chorrea de verdad, no es foto. Volví al día siguiente.”</p><p><strong>Martín Aguirre</strong> · Once · ★★★★★</p></div>
+    <div class="rev rv" style="--i:1"><p>“El hummus casero con el criollo es otro nivel. Y apto para mi dieta sin gluten.”</p><p><strong>Camila Duarte</strong> · Abasto · ★★★★★</p></div>
+    <div class="rev rv" style="--i:2"><p>“Doble a $16.700 con mi hermano. No existe mejor $/felicidad en Once.”</p><p><strong>Joaquín Otero</strong> · Flores · ★★★★☆</p></div>
+  </div>
+</div></section>
+
+<section id="veni" style="background:var(--cream); border-top:3px solid var(--ink)"><div class="wrap">
+  <div class="k">03 · VENÍ</div><h2>Av. Rivadavia 3085, <em>Once.</em></h2>
+  <p class="sub">Lun-Dom 12–23 h · Vie/Sáb hasta 00 h · Pet-friendly con bebederos y galletitas gratis · Subte A Miserere y tren Sarmiento a 4 min.</p>
+  <div class="visit">
+    <div class="info rv"><div class="lr"><strong>Mostrador y vereda:</strong> pedís, en 3 minutos sale humeando. Happy eggcho 15–18 h: 2do al -15%.</div><div class="lr"><strong>Delivery:</strong> Once, Balvanera, Abasto y Almagro por WhatsApp. Resto de CABA por apps.</div><div class="lr"><strong>Bebidas desde $4.000 · Flan $5.000.</strong> Agua, gaseosa y limonada SG; cerveza no.</div></div>
+    <div class="map rv" style="--i:1"><iframe title="Mapa Once" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-58.4125%2C-34.6065%2C-58.3985%2C-34.5985&layer=mapnik&marker=-34.6025%2C-58.4055"></iframe><div class="mapfoot"><span class="mono" style="font-size:.75rem">BUSCÁ EL AMARILLO HUEVO</span><a class="btn btn-o" style="min-height:44px; padding:10px 18px" href="https://www.google.com/maps/search/?api=1&query=Av.+Rivadavia+3085+Buenos+Aires" target="_blank" rel="noopener">Abrir en Maps</a></div></div>
+  </div>
+  <div class="faq">
+    <div class="fq"><button>¿De verdad llena sin carne? <span>+</span></button><div class="fa"><p>Sí: 2 huevos + pan de papa + queso por unidad. El combo con papas deja lleno a cualquiera; el extra de huevo (+$2.000) o el hummus (+$1.500) lo hacen todavía más contundente.</p></div></div>
+    <div class="fq"><button>¿Qué premium elijo? <span>+</span></button><div class="fa"><p>Chutney si te gusta agridulce, relish si querés frescura crocante, hummus si querés cremosidad que llena. Los 3 son ovo-vegetarianos y sin TACC. Se pueden combinar.</p></div></div>
+    <div class="fq"><button>¿Celíacos y perros? <span>+</span></button><div class="fa"><p>Celíacos: pan apto (+$1.000) o cajita, toppings con badge SG; papas pay y cebolla crispy no son aptas. Perros: adentro siempre, agua y galletitas gratis.</p></div></div>
+  </div>
+  <div class="final rv"><div><h2>Doble huevo <em>te espera en Once.</em></h2><p style="margin:6px 0 0; color:#FFE3C2">Pedí ahora y retirá en 3 minutos.</p></div><div style="display:flex; gap:10px; flex-wrap:wrap"><a class="btn btn-o" href="https://wa.me/5491100000000" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-w" href="index.html">← Portal</a></div></div>
+</div></section>
+</main>
+<footer><div class="wrap foot"><span><strong>eggchos</strong> · V2 Carta · T&T desde 2026</span><span><a href="index.html">Portal</a> · <a href="eggchos-v1.html">V1</a> · <a href="eggchos-v3.html">V3</a></span><span class="mono" id="y">© 2026</span></div></footer>
+<script>
+document.getElementById('y').textContent='© '+new Date().getFullYear()+' EGGCHOS ONCE';
+const nav=document.getElementById('nav');document.getElementById('bg').onclick=()=>nav.classList.toggle('open');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.fq button').forEach(b=>b.addEventListener('click',()=>{const a=b.nextElementSibling;const o=a.style.maxHeight&&a.style.maxHeight!=='0px';document.querySelectorAll('.fa').forEach(x=>x.style.maxHeight='0px');if(!o)a.style.maxHeight=a.scrollHeight+'px';}));
+let bp=8000,bn='Clásico';
+document.querySelectorAll('#bases button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#bases button').forEach(x=>x.classList.remove('on'));b.classList.add('on');bp=+b.dataset.p;bn=b.dataset.n;calc()}));
+const t=document.getElementById('t'),go=document.getElementById('go');
+function fmt(n){return '$'+n.toLocaleString('es-AR')}
+function calc(){
+  const combo=document.getElementById('cC').checked,extra=document.getElementById('cX').checked;
+  let pr=[...document.querySelectorAll('.pr:checked')].length*1500;
+  let total=combo?15000:bp; if(extra)total+=2000; total+=pr;
+  t.textContent=fmt(total);
+  go.href='https://wa.me/5491100000000?text='+encodeURIComponent('Hola eggchos! Quiero: '+bn+(combo?' en COMBO $15.000':'')+(extra?' +EXTRA HUEVO':'')+(pr?' +PREMIUM':'')+' = '+fmt(total));
+}
+document.querySelectorAll('#cC,#cX,.pr').forEach(c=>c.addEventListener('change',calc));calc();
+</script>
+</body>
+</html>

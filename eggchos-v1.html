@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eggchos V1 Clásica — Panchos de huevo revuelto en Once</title>
+<meta name="description" content="eggchos en Once, Buenos Aires. Panchos con salchicha de huevo revuelto cremoso, pan de papa tibio y toppings zarpados. Pet-friendly y apto ovo-vegetarianos.">
+<meta property="og:title" content="eggchos — El pancho sin salchicha">
+<meta property="og:description" content="Salchicha de huevo revuelto + pan de papa + toppings. En Once. Pet-friendly. Ovo-vegetariano.">
+<meta property="og:image" content="b_generá_un_logo_color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="a_Retro_mascot_emblem_.jpeg">
+<style>
+:root{
+  --cream:#FFF6E3;
+  --cream-2:#FDEFC4;
+  --paper:#FFFEF7;
+  --ink:#211304;
+  --muted:#6f604c;
+  --line:#E9DCC0;
+  --yolk:#FFB300;
+  --yolk-deep:#E8930C;
+  --ketchup:#D93A0B;
+  --ketchup-dark:#A92A06;
+  --leaf:#2F7A4D;
+  --shadow:0 20px 40px -18px rgba(33,19,4,.22);
+  --r-lg:28px;
+  --r-md:18px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --max:1400px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Outfit',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:60; pointer-events:none;
+  opacity:.5; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+}
+::selection{background:var(--yolk); color:var(--ink)}
+img{max-width:100%; display:block}
+a{color:inherit}
+.wrap{max-width:var(--max); margin:0 auto; padding-left: clamp(18px,4vw,48px); padding-right: clamp(18px,4vw,48px)}
+.mono{font-family:'JetBrains Mono',monospace}
+.topbar{
+  position:sticky; top:12px; z-index:50;
+  margin:12px auto 0; max-width:var(--max);
+  padding-left: clamp(12px,2vw,24px); padding-right: clamp(12px,2vw,24px);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  background:rgba(255,254,247,.86);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:10px 10px 10px 18px;
+  box-shadow:0 10px 30px -18px rgba(33,19,4,.35);
+}
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+.brand-mark{
+  width:42px; height:42px; border-radius:50%; overflow:hidden; flex:0 0 42px;
+  border:2px solid var(--ink); background:var(--yolk);
+}
+.brand-mark img{width:100%; height:100%; object-fit:cover}
+.brand-name{font-family:'Fraunces',serif; font-weight:900; font-size:1.55rem; letter-spacing:-.04em; line-height:1}
+.brand-name span{color:var(--ketchup)}
+.brand-sub{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:700}
+.nav-links{display:flex; gap:26px; align-items:center}
+.nav-links a{text-decoration:none; font-weight:600; font-size:.95rem; opacity:.8}
+.nav-links a:hover{opacity:1; color:var(--ketchup)}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  border-radius:999px; border:1.5px solid var(--ink);
+  padding:14px 24px; min-height:48px;
+  font-weight:800; font-size:.98rem; text-decoration:none;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .25s;
+  will-change:transform; cursor:pointer; white-space:nowrap;
+}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-primary{background:var(--ink); color:var(--cream); box-shadow:4px 4px 0 var(--yolk)}
+.btn-primary:hover{transform:translate(-1px,-2px); box-shadow:6px 7px 0 var(--yolk)}
+.btn-yolk{background:var(--yolk); color:var(--ink); box-shadow:4px 4px 0 var(--ink)}
+.btn-yolk:hover{transform:translate(-1px,-2px); box-shadow:6px 7px 0 var(--ink)}
+.btn-ghost{background:transparent; color:var(--ink)}
+.btn-ghost:hover{background:#fff}
+.btn-sm{padding:10px 18px; min-height:44px; font-size:.9rem}
+.burger{display:none; background:none; border:1.5px solid var(--ink); border-radius:12px; width:44px; height:44px; font-size:1.2rem; cursor:pointer}
+
+/* HERO */
+.hero{
+  min-height:100dvh;
+  display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(24px,4vw,64px);
+  align-items:center;
+  padding-top: clamp(28px,4vw,56px);
+  padding-bottom: 24px;
+  position:relative;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:-60px -10vw auto -10vw; height:560px; z-index:-1;
+  background:
+    radial-gradient(620px 380px at 78% 18%, rgba(255,179,0,.28), transparent 70%),
+    radial-gradient(520px 420px at 12% 32%, rgba(217,58,11,.10), transparent 70%);
+}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid var(--ink); border-radius:999px;
+  background:var(--paper); padding:8px 8px 8px 10px;
+  font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  box-shadow:3px 3px 0 var(--ink);
+}
+.dot{width:9px; height:9px; border-radius:50%; background:#2F7A4D; box-shadow:0 0 0 5px rgba(47,122,77,.18); animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+.eyebrow .tag{background:var(--ink); color:var(--cream); border-radius:999px; padding:6px 12px; letter-spacing:.1em}
+h1{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:clamp(2.9rem,6.2vw,5.4rem);
+  line-height:.92; letter-spacing:-.045em;
+  margin:22px 0 18px; text-wrap:balance;
+}
+h1 em{font-style:italic; color:var(--ketchup); font-weight:900}
+h1 .inline-img{
+  display:inline-block; vertical-align:baseline;
+  width:1.35em; height:.82em; object-fit:cover;
+  border-radius:999px; border:2px solid var(--ink);
+  transform:translateY(.08em) rotate(-3deg);
+  margin:0 .08em;
+}
+.lead{font-size:clamp(1.05rem,1.5vw,1.25rem); line-height:1.6; color:#4a3f2f; max-width:56ch; margin:0 0 24px}
+.hero-ctas{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-bottom:22px}
+.hero-meta{display:flex; gap:18px; flex-wrap:wrap; align-items:center; border-top:1px dashed var(--line); padding-top:18px}
+.stars{display:inline-flex; gap:2px; vertical-align:middle}
+.meta-item{font-size:.92rem; color:#4a3f2f}
+.meta-item strong{color:var(--ink)}
+.hero-visual{position:relative; display:flex; justify-content:center}
+.arch{
+  position:relative; width:min(520px,100%); aspect-ratio:.92;
+  background:var(--yolk);
+  border:3px solid var(--ink);
+  border-radius:999px 999px 36px 36px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.arch img{width:100%; height:100%; object-fit:cover; object-position:center 18%; transform:scale(1.02)}
+.float-badge{
+  position:absolute; background:var(--paper);
+  border:2px solid var(--ink); border-radius:18px;
+  padding:12px 14px; box-shadow:4px 4px 0 var(--ink);
+  font-weight:800; font-size:.9rem; line-height:1.15;
+  animation:floaty 5s ease-in-out infinite;
+}
+.float-badge small{display:block; font-weight:600; color:var(--muted); font-size:.78rem}
+.fb-1{left:-18px; top:18%; transform:rotate(-6deg)}
+.fb-2{right:-10px; bottom:16%; animation-delay:-2.5s; transform:rotate(3deg)}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.stamp{
+  position:absolute; left:-34px; bottom:-18px;
+  width:132px; height:132px; display:grid; place-items:center;
+  background:var(--ketchup); color:var(--cream);
+  border:3px solid var(--ink); border-radius:50%;
+  font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:700;
+  text-align:center; line-height:1.2; letter-spacing:.06em;
+  transform:rotate(-12deg);
+  animation:spinSlow 18s linear infinite;
+  box-shadow:4px 4px 0 var(--ink);
+}
+.stamp b{font-family:'Fraunces',serif; font-size:1.15rem; display:block; letter-spacing:-.02em}
+@keyframes spinSlow{to{transform:rotate(348deg)}}
+
+/* MARQUEE */
+.marquee{
+  border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);
+  background:var(--ink); color:var(--cream);
+  overflow:hidden; white-space:nowrap;
+  transform:rotate(-1deg); margin:18px -10px 0;
+}
+.marquee-track{display:inline-flex; gap:0; padding:13px 0; animation:marq 22s linear infinite; will-change:transform}
+.marquee span{font-family:'Fraunces',serif; font-weight:900; font-size:1.05rem; letter-spacing:.02em; padding:0 18px; display:inline-flex; align-items:center; gap:18px}
+.marquee i{width:10px; height:10px; background:var(--yolk); border-radius:50%; display:inline-block}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:clamp(56px,8vw,112px) 0}
+.kicker{font-family:'JetBrains Mono',monospace; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ketchup); font-weight:700; display:flex; align-items:center; gap:12px; margin-bottom:14px}
+.kicker::before{content:""; width:28px; height:2px; background:var(--ketchup); display:inline-block}
+h2{font-family:'Fraunces',serif; font-weight:900; letter-spacing:-.04em; line-height:.95; font-size:clamp(2rem,4.2vw,3.6rem); margin:0 0 16px; text-wrap:balance}
+h2 em{font-style:italic; color:var(--ketchup)}
+.sub{color:#53472f; line-height:1.65; font-size:1.06rem; max-width:62ch}
+
+/* QUE ES */
+.que-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(24px,4vw,72px); align-items:start; margin-top:28px}
+.sticky-card{position:sticky; top:100px; background:var(--paper); border:2px solid var(--ink); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow)}
+.sticky-card img{aspect-ratio:1; object-fit:cover; width:100%}
+.sticky-card .cap{padding:18px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; border-top:2px solid var(--ink); background:var(--cream-2)}
+.steps{display:grid; gap:16px}
+.step{
+  background:var(--paper); border:1.5px solid var(--line); border-radius:var(--r-md);
+  padding:22px 22px; display:grid; grid-template-columns:64px 1fr; gap:16px; align-items:start;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s;
+}
+.step:hover{transform:translateY(-3px); border-color:var(--ink); box-shadow:6px 6px 0 var(--yolk)}
+.step-num{font-family:'JetBrains Mono',monospace; font-weight:700; background:var(--ink); color:var(--cream); border-radius:14px; height:56px; display:grid; place-items:center; font-size:1rem}
+.step h3{margin:0 0 8px; font-size:1.25rem; letter-spacing:-.02em}
+.step p{margin:0; color:#5a4f3a; line-height:1.6}
+.pill{display:inline-block; font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; background:var(--cream-2); border:1px solid var(--line); padding:6px 10px; border-radius:999px; margin-bottom:10px}
+
+/* MENU */
+#menu{background:var(--paper); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); position:relative}
+#menu::before{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(33,19,4,.08) 1.2px, transparent 1.2px);
+  background-size:22px 22px; pointer-events:none;
+}
+.menu-head{display:flex; justify-content:space-between; align-items:end; gap:24px; flex-wrap:wrap; margin-bottom:28px; position:relative}
+.menu-grid{display:grid; grid-template-columns:1.25fr .85fr; grid-template-rows:auto auto; gap:18px; position:relative}
+.dish{
+  border:2px solid var(--ink); border-radius:var(--r-lg); overflow:hidden; background:var(--cream);
+  display:grid; transition:transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.dish:hover{transform:translateY(-4px) rotate(-.2deg); box-shadow:8px 8px 0 var(--ink)}
+.dish-featured{grid-row:span 2; grid-template-rows:1fr auto}
+.dish-img{position:relative; overflow:hidden; background:var(--yolk); min-height:220px}
+.dish-featured .dish-img{min-height:360px}
+.dish-img img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0; transition:transform .8s var(--ease)}
+.dish:hover .dish-img img{transform:scale(1.05)}
+.price-flag{position:absolute; top:14px; right:14px; background:var(--ink); color:var(--cream); font-family:'JetBrains Mono',monospace; font-weight:700; padding:9px 14px; border-radius:999px; border:2px solid var(--cream)}
+.dish-body{padding:20px 22px 22px}
+.dish-body h3{font-family:'Fraunces',serif; font-size:1.6rem; margin:0 0 6px; letter-spacing:-.03em}
+.dish-body p{margin:0 0 14px; color:#5a4f3a; line-height:1.55}
+.dish-tags{display:flex; gap:8px; flex-wrap:wrap}
+.mini-tag{font-size:.72rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border:1px solid var(--ink); border-radius:999px; padding:5px 10px; background:#fff}
+.mini-tag.veg{background:#E3F2E6; border-color:#2F7A4D; color:#1e5734}
+.mini-tag.hot{background:#FDE3D3; border-color:var(--ketchup); color:var(--ketchup-dark)}
+.dish-side{display:grid; gap:18px}
+.armalo{
+  margin-top:18px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:0;
+  border:2px solid var(--ink); border-radius:var(--r-lg); overflow:hidden; background:var(--cream); position:relative;
+}
+.armalo div{padding:20px 22px; border-left:2px dashed var(--ink)}
+.armalo div:first-child{border-left:0; background:var(--yolk)}
+.armalo h4{margin:0 0 8px; font-size:1rem; letter-spacing:.06em; text-transform:uppercase}
+.armalo ul{margin:0; padding-left:18px; color:#4d4330; line-height:1.7; font-size:.95rem}
+.extras{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; position:relative}
+.extra-card{border:1.5px solid var(--ink); border-radius:var(--r-md); background:var(--cream); padding:18px 20px}
+.extra-card h4{margin:0 0 12px; font-family:'JetBrains Mono',monospace; font-size:.8rem; letter-spacing:.14em; text-transform:uppercase}
+.row{display:flex; align-items:baseline; gap:10px; padding:9px 0; border-bottom:1px dotted #c7b78e; font-size:.96rem}
+.row:last-child{border-bottom:0}
+.row b{margin-left:auto; font-family:'JetBrains Mono',monospace; white-space:nowrap}
+
+/* BAND */
+.band{background:var(--ink); color:var(--cream); border-radius:32px; overflow:hidden; position:relative; display:grid; grid-template-columns:1fr 1fr}
+.band-copy{padding:clamp(28px,4vw,56px)}
+.band-copy h2{color:var(--cream)}
+.band-copy h2 em{color:var(--yolk)}
+.band-list{display:grid; gap:14px; margin:22px 0 26px}
+.band-item{display:flex; gap:14px; align-items:start; background:rgba(255,246,227,.07); border:1px solid rgba(255,246,227,.18); border-radius:16px; padding:14px 16px}
+.band-item svg{flex:0 0 28px}
+.band-item p{margin:2px 0 0; color:#d8cbb0; line-height:1.55; font-size:.96rem}
+.band-item strong{color:#fff}
+.band-photo{min-height:420px; position:relative; background:#111}
+.band-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.02)}
+.band-photo::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg, var(--ink) 0%, transparent 28%)}
+
+/* OPINIONES */
+.rev-track{display:grid; grid-auto-flow:column; grid-auto-columns:minmax(300px,380px); gap:18px; overflow-x:auto; padding:8px 4px 18px; scroll-snap-type:x mandatory; scrollbar-width:thin}
+.rev{scroll-snap-align:start; background:var(--paper); border:1.5px solid var(--ink); border-radius:22px; padding:22px; box-shadow:5px 5px 0 var(--cream-2); display:flex; flex-direction:column; gap:12px}
+.rev-head{display:flex; gap:12px; align-items:center}
+.avatar{width:48px; height:48px; border-radius:50%; border:2px solid var(--ink); display:grid; place-items:center; font-weight:800; background:var(--yolk)}
+.rev p{margin:0; line-height:1.6; color:#4d4330}
+.rev .who{font-size:.88rem; color:var(--muted)}
+.rev .who strong{color:var(--ink)}
+
+/* VISITA */
+.visita-grid{display:grid; grid-template-columns:.95fr 1.05fr; gap:22px; align-items:stretch; margin-top:26px}
+.info-card{background:var(--paper); border:2px solid var(--ink); border-radius:var(--r-lg); padding:26px; box-shadow:var(--shadow)}
+.info-row{display:flex; gap:14px; padding:14px 0; border-top:1px solid var(--line); align-items:start}
+.info-row:first-of-type{border-top:0}
+.info-row svg{flex:0 0 30px; margin-top:2px}
+.info-row h4{margin:0 0 4px; font-size:1rem}
+.info-row p{margin:0; color:#5a4f3a; line-height:1.55}
+.map-card{border:2px solid var(--ink); border-radius:var(--r-lg); overflow:hidden; background:#e8dfc7; position:relative; min-height:420px; display:flex; flex-direction:column}
+.map-card iframe{flex:1; min-height:360px; border:0; width:100%; filter:sepia(.22) saturate(1.1)}
+.map-foot{background:var(--ink); color:var(--cream); padding:16px 20px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+
+/* FAQ */
+.faq{max-width:860px; margin-top:18px; background:var(--paper); border:2px solid var(--ink); border-radius:var(--r-lg); overflow:hidden}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:0}
+.faq-q{width:100%; background:none; border:0; text-align:left; padding:20px 22px; display:flex; justify-content:space-between; align-items:center; gap:16px; font-weight:800; font-size:1.05rem; cursor:pointer; color:var(--ink); font-family:'Outfit',sans-serif}
+.faq-q span.ic{width:34px; height:34px; border:1.5px solid var(--ink); border-radius:50%; display:grid; place-items:center; flex:0 0 34px; font-size:1.2rem; background:var(--cream)}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .5s var(--ease)}
+.faq-a p{margin:0; padding:0 22px 22px; color:#5a4f3a; line-height:1.65; max-width:62ch}
+
+/* FINAL */
+.final{background:var(--yolk); border:2px solid var(--ink); border-radius:32px; padding:clamp(30px,5vw,64px); text-align:left; display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center; position:relative; overflow:hidden}
+.final::after{content:"eggchos"; position:absolute; right:-10px; bottom:-36px; font-family:'Fraunces',serif; font-weight:900; font-style:italic; font-size:clamp(6rem,14vw,11rem); opacity:.12; letter-spacing:-.05em; pointer-events:none}
+.final h2{font-size:clamp(2.2rem,4.5vw,3.8rem)}
+.final-btns{display:flex; gap:12px; flex-wrap:wrap; position:relative; z-index:1}
+footer{padding:28px 0 40px; color:#6b5e46; font-size:.9rem}
+.foot{display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:20px; align-items:center}
+.foot a{text-decoration:none; font-weight:600}
+
+/* REVEAL */
+.rv{opacity:0; translate:0 18px; transition:opacity .7s var(--ease), translate .7s var(--ease); transition-delay:calc(var(--i,0)*90ms)}
+.rv.in{opacity:1; translate:0 0}
+.tilt{transform-style:preserve-3d}
+
+@media (max-width:1020px){
+  .hero{grid-template-columns:1fr; min-height:auto; padding-top:26px}
+  .hero-visual{order:-1}
+  .arch{width:min(420px,92vw)}
+  .fb-1{left:2px} .fb-2{right:2px}
+  .stamp{left:auto; right:6px; bottom:-18px; width:112px; height:112px}
+  .que-grid, .visita-grid, .band, .final{grid-template-columns:1fr}
+  .band-photo{min-height:300px}
+  .menu-grid{grid-template-columns:1fr}
+  .armalo{grid-template-columns:1fr}
+  .armalo div{border-left:0; border-top:2px dashed var(--ink)}
+  .armalo div:first-child{border-top:0}
+  .extras{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav.open .nav-links{display:flex; position:absolute; top:70px; left:12px; right:12px; background:var(--paper); border:2px solid var(--ink); border-radius:20px; padding:16px; flex-direction:column; align-items:stretch; z-index:60}
+  .nav.open .nav-links a{padding:12px 10px; border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important; transition:none !important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1; translate:none}
+}
+@media(max-width:560px){.topbar .btn{display:none} h1{font-size:clamp(2.5rem,13vw,3.2rem)}}
+</style>
+</head>
+<body>
+<script src="gate.js"></script>
+
+<div class="topbar">
+  <nav class="nav" id="nav" aria-label="Principal">
+    <a class="brand" href="#top" aria-label="eggchos inicio">
+      <span class="brand-mark"><img src="a_Retro_mascot_emblem_.jpeg" alt="Logo eggchos, pancho de huevo revuelto"></span>
+      <span><span class="brand-name">egg<span>chos</span></span><br><span class="brand-sub">Once · Buenos Aires</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#que-es">Qué es</a>
+      <a href="#menu">Menú</a>
+      <a href="#local">El local</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#visitanos">Vení</a>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center">
+      <a class="btn btn-primary btn-sm magnetic" href="https://wa.me/5491100000000?text=Hola%20eggchos!%20Quiero%20pedir" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      <button class="burger" id="burger" aria-label="Abrir menú">☰</button>
+    </div>
+  </nav>
+</div>
+
+<main id="top">
+<!-- HERO -->
+<header class="wrap hero">
+  <div>
+    <span class="eyebrow rv in"><span class="dot"></span> Abierto hoy · Once <span class="tag">Pet-friendly</span> <span class="tag" style="background:#2F7A4D">Ovo-vegetariano</span></span>
+    <h1 class="rv in" style="--i:1">El pancho <em>sin salchicha.</em><br>Con <img class="inline-img" src="a_A_playful_1930s_rubb.png" alt="Huevo revuelto cremoso"> huevo de verdad.</h1>
+    <p class="lead rv in" style="--i:2">En eggchos cambiamos la salchicha de carne por una <strong>salchicha de huevo revuelto cremoso</strong>, hecha al momento, en pan de papa tibio. Todo lo que amás del pancho callejero —mostaza, lluvia de papas, cheddar— <strong>sin carne y sin vueltas</strong>.</p>
+    <div class="hero-ctas rv in" style="--i:3">
+      <a href="#menu" class="btn btn-yolk magnetic">Ver menú
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#visitanos" class="btn btn-ghost magnetic">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Cómo llegar a Once</a>
+    </div>
+    <div class="hero-meta rv in" style="--i:4">
+      <span class="meta-item"><span class="stars" aria-label="4.8 estrellas">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#E8930C"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#E8930C"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#E8930C"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#E8930C"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#E8930C"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+      </span> <strong>4.8</strong> · 1.237 reseñas</span>
+      <span class="meta-item mono">DESDE $8.000</span>
+      <span class="meta-item">Despacho en <strong>±3 min</strong></span>
+    </div>
+  </div>
+  <div class="hero-visual rv in" style="--i:2">
+    <div class="arch tilt" id="tilt">
+      <img src="b_generá_un_logo_color.png" alt="Mascota eggchos, salchicha de huevo revuelto con gorra">
+    </div>
+    <div class="float-badge fb-1">100% huevo real<small>revuelto cremoso, al momento</small></div>
+    <div class="float-badge fb-2">0% carne<small>apto ovo-vegetarianos</small></div>
+    <div class="stamp"><span><b>eggchos</b>ONCE · DESDE 2026</span></div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>SIN CARNE <i></i> CON HUEVO <i></i> PAN DE PAPA TIBIO <i></i> PET-FRIENDLY <i></i> ONCE · BUENOS AIRES <i></i> OVO-VEGETARIANO <i></i></span>
+    <span>SIN CARNE <i></i> CON HUEVO <i></i> PAN DE PAPA TIBIO <i></i> PET-FRIENDLY <i></i> ONCE · BUENOS AIRES <i></i> OVO-VEGETARIANO <i></i></span>
+  </div>
+</div>
+
+<!-- QUE ES -->
+<section id="que-es">
+  <div class="wrap">
+    <div class="kicker">Qué es un eggcho</div>
+    <h2>No reinventamos el pancho.<br><em>Le sacamos la salchicha.</em></h2>
+    <p class="sub">La misma liturgia de la panchera de Once: pan calentito, aderezos hasta el borde, comer parado o en la vereda. Solo que el protagonista es huevo revuelto moldeado como salchicha, dorado por fuera y babé por dentro.</p>
+    <div class="que-grid">
+      <div class="sticky-card rv">
+        <img src="a_A_playful_1930s_rubb.png" alt="Eggcho: pan con salchicha de huevo revuelto">
+        <div class="cap"><strong>El clásico Eggcho</strong><span class="mono">PAN + HUEVO + TOPPINGS</span></div>
+      </div>
+      <div class="steps">
+        <div class="step rv"><div class="step-num">01</div><div><span class="pill">Pan de papa</span><h3>Tibio, esponjoso, que abraza</h3><p>Horneado a diario por una panadería de Balvanera. Se tuesta en manteca antes de cada pedido para que no se desarme ni se enfríe.</p></div></div>
+        <div class="step rv" style="--i:1"><div class="step-num">02</div><div><span class="pill">La salchicha de huevo</span><h3>Revuelto cremoso, moldeado al momento</h3><p>Dos huevos por eggcho, con crema, sal y cúrcuma suave. Se cocina en plancha, se moldea como salchicha y se dora. Sin carne, sin soja texturizada, sin misterio.</p></div></div>
+        <div class="step rv" style="--i:2"><div class="step-num">03</div><div><span class="pill">Toppings de panchera</span><h3>Los de siempre, en serio</h3><p>Cheddar fundido, lluvia de papas, cebolla crispy, jalapeños, criolla, barbacoa, mostaza y ketchup. Si sos de los que le ponen todo, este es tu lugar.</p></div></div>
+        <div class="step rv" style="--i:3; background:#211304; color:#FFF6E3; border-color:#211304"><div class="step-num" style="background:#FFB300; color:#211304">OK</div><div><h3 style="color:#fff">¿Llena como un pancho normal?</h3><p style="color:#d8cbb0">Llena más. Cada eggcho lleva 2 huevos + pan de papa + queso. La mayoría sale con uno y vuelve por el segundo. Combo con papas y bebida: $15.000 (por separado $16.500, te ahorrás $1.500).</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <div class="kicker">Menú</div>
+        <h2>Cuatro eggchos.<br><em>Cero salchicha.</em></h2>
+        <p class="sub">Todo se hace al momento. Todo es ovo-vegetariano. Todo se puede pedir sin TACC con pan apto (consultá stock del día).</p>
+      </div>
+      <a class="btn btn-primary magnetic" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20un%20eggcho" target="_blank" rel="noopener">Pedir ahora</a>
+    </div>
+
+    <div class="menu-grid">
+      <article class="dish dish-featured rv">
+        <div class="dish-img"><img src="a_Retro_mascot_emblem_.jpeg" alt="Eggcho clásico"><span class="price-flag">$8.000</span></div>
+        <div class="dish-body">
+          <div class="dish-tags"><span class="mini-tag veg">Ovo-veg</span><span class="mini-tag">El más pedido</span></div>
+          <h3>El Clásico Once</h3>
+          <p>Huevo revuelto cremoso + mostaza + ketchup + lluvia de papas + cebolla de verdeo. El que pide tu abuela y tu sobrino veggie.</p>
+          <a href="https://wa.me/5491100000000?text=Quiero%20El%20Cl%C3%A1sico%20Once" target="_blank" rel="noopener" style="font-weight:800; color:var(--ketchup)">Pedir este →</a>
+        </div>
+      </article>
+      <div class="dish-side">
+        <article class="dish rv" style="--i:1">
+          <div class="dish-body">
+            <div class="dish-tags"><span class="mini-tag veg">Ovo-veg</span><span class="mini-tag hot">Cheddar XL</span></div>
+            <h3>Cheddar Fundido</h3>
+            <p>Doble cheddar + huevo + cebolla crispy + barbacoa ahumada.</p>
+            <div class="row"><span>Precio</span><b>$8.500</b></div>
+          </div>
+        </article>
+        <article class="dish rv" style="--i:2">
+          <div class="dish-body">
+            <div class="dish-tags"><span class="mini-tag veg">Ovo-veg</span><span class="mini-tag">Picante</span></div>
+            <h3>Mexicano de Balvanera</h3>
+            <p>Huevo + guacamole + jalapeños + criolla + cilantro + lima. Pica, avisa y enamora.</p>
+            <div class="row"><span>Precio</span><b>$9.000</b></div>
+          </div>
+        </article>
+        <article class="dish rv" style="--i:3">
+          <div class="dish-body">
+            <div class="dish-tags"><span class="mini-tag veg">Ovo-veg</span><span class="mini-tag">Argento</span></div>
+            <h3>Criollo</h3>
+            <p>Huevo + provoleta fundida + chimichurri + morrón asado. Domingo en la cancha, lunes en Once.</p>
+            <div class="row"><span>Precio</span><b>$8.500</b></div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="armalo rv">
+      <div><h4>1 · Elegí base</h4><ul><li>Clásico Once — <strong>$8.000</strong></li><li>Cheddar / Criollo — <strong>$8.500</strong></li><li>Mexicano — <strong>$9.000</strong> (guacamole y jalapeños)</li><li>Pan apto sin TACC (+$1.000) · Versión cajita sin pan (mismo precio)</li></ul></div>
+      <div><h4>2 · Sumá toppings</h4><ul><li>Cheddar, provoleta <span class="mono" style="font-size:.75rem">[OV · SG]</span></li><li>Criolla, chimichurri, guacamole, jalapeños, morrón <span class="mono" style="font-size:.75rem">[OV · SG]</span></li><li>Mostaza, ketchup, barbacoa, mayo de huevo <span class="mono" style="font-size:.75rem">[OV · SG*]</span></li><li>Papas pay, cebolla crispy <span class="mono" style="font-size:.75rem">[OV · con gluten]</span></li><li><strong>Premium +$1.500 c/u:</strong> chutney casero, relish de pepinos, hummus casero <span class="mono" style="font-size:.75rem">[OV · SG]</span></li></ul></div>
+      <div><h4>3 · Cerrá con combo</h4><ul><li>Eggcho + papas + bebida <strong>$15.000</strong> <span class="mono" style="font-size:.75rem">(ahorrás $1.500)</span></li><li>Doble eggcho + 2 bebidas <strong>$16.700</strong> <span class="mono" style="font-size:.75rem">(promo parejas, sin papas)</span></li><li>Extra huevo-salchicha <strong>$2.000</strong></li></ul></div>
+    </div>
+
+    <div class="extras">
+      <div class="extra-card rv"><h4>Para tomar (desde $4.000) · Postre (desde $5.000)</h4>
+        <div class="row"><span>Agua / Gaseosa chica <span class="mono" style="font-size:.72rem">[OV · SG]</span></span><b>$4.000</b></div>
+        <div class="row"><span>Limonada con menta y jengibre <span class="mono" style="font-size:.72rem">[OV · SG]</span></span><b>$4.500</b></div>
+        <div class="row"><span>Cerveza rubia tirada (pinta)</span><b>$6.000</b></div>
+        <div class="row"><span>Flan de huevo con dulce de leche <span class="mono" style="font-size:.72rem">[OV]</span></span><b>$5.000</b></div>
+        <p class="mono" style="font-size:.72rem; color:#6f604c; margin:10px 0 0">OV = apto ovo-vegetariano · SG = apto celíacos (sin TACC) · SG* = pedilo sin TACC, consultá marca del día · Papas pay y cebolla crispy tienen gluten · Premium: chutney casero de tomate y manzana, relish agridulce de pepinos y hummus batido a diario — los 3 son OV y SG.</p></div>
+      <div class="extra-card rv" style="--i:1; background:#211304; color:#FFF6E3; border-color:#211304"><h4 style="color:#FFB300">Dato de mostrador</h4>
+        <p style="margin:0; line-height:1.65; color:#e8dcc2">Si venís con perro, el agua y las galletitas caninas van por la casa. Si venís con hambre atrasada, pedí el doble: el segundo sale con <strong style="color:#fff">15% off de 15 a 18 h</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL / PET -->
+<section id="local">
+  <div class="wrap">
+    <div class="band rv">
+      <div class="band-copy">
+        <div class="kicker" style="color:var(--yolk)">El local · Balvanera</div>
+        <h2>Pet-friendly <em>de verdad.</em> No solo el cartel.</h2>
+        <p class="sub" style="color:#d8cbb0">Estamos a 3 cuadras de Plaza Miserere. Entrá con tu perro, tu gato en mochila o tu loro conversador. Adentro hay correas en la barra, bebederos y un patio para que no se aburran.</p>
+        <div class="band-list">
+          <div class="band-item">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFB300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="7" r="2.2"/><circle cx="6.5" cy="10.5" r="2.2"/><circle cx="15.5" cy="10.5" r="2.2"/><path d="M11 12.5c-3 0-5.5 2.5-5.5 5.5H16.5c0-3-2.5-5.5-5.5-5.5z"/></svg>
+            <div><strong>Perros adentro y en vereda</strong><p>Agua fresca siempre, galletitas gratis y trapos por si hay accidente. Nadie te mira raro.</p></div>
+          </div>
+          <div class="band-item">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFB300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-5 0-8-3.5-8-9 4 0 6 1.5 8 4 2-2.5 4-4 8-4 0 5.5-3 9-8 9z"/><path d="M12 21v-8"/></svg>
+            <div><strong>Apto ovo-vegetarianos</strong><p>Sin carne, sin pollo, sin pescado, sin caldo de nada. Huevo, lácteos y vegetales. Cocina separada.</p></div>
+          </div>
+          <div class="band-item">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFB300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+            <div><strong>Once, popular y sin fila eterna</strong><p>Precios de barrio, despacho en 3 minutos y lugar para comer parado como se debe.</p></div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <a href="#visitanos" class="btn btn-yolk magnetic">Conocé el local</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="btn" style="border-color:rgba(255,246,227,.4); color:#fff">Ver Instagram</a>
+        </div>
+      </div>
+      <div class="band-photo"><img src="b_Retro_mascot_emblem_.png" alt="Emblema retro eggchos" onerror="this.src='b_generá_un_logo_color.png'"></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPINIONES -->
+<section id="opiniones" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Opiniones</div>
+    <h2>Los de Once <em>ya eligieron.</em></h2>
+    <p class="sub">1.237 reseñas en Google, promedio 4.8. Estas son de la última semana.</p>
+    <div class="rev-track" style="margin-top:22px">
+      <article class="rev rv"><div class="rev-head"><span class="avatar">LF</span><div><strong>Lucía Ferraro</strong><div class="who">Balvanera · con Mora (caniche)</div></div></div><p>“Entré con la perra sin pedir permiso y ya tenían el bebedero servido. El criollo con provoleta es una locura. No extraño la salchicha ni un poco.”</p><div class="who">★★★★★ · hace 3 días</div></article>
+      <article class="rev rv" style="--i:1"><div class="rev-head"><span class="avatar" style="background:#fff">MA</span><div><strong>Martín Aguirre</strong><div class="who">Once · carnívoro declarado</div></div></div><p>“Vine a bardear y me callaron la boca. El cheddar fundido con cebolla crispy llena como un pancho doble. Volví al día siguiente.”</p><div class="who">★★★★★ · hace 5 días</div></article>
+      <article class="rev rv" style="--i:2"><div class="rev-head"><span class="avatar" style="background:var(--ketchup); color:#fff">CD</span><div><strong>Camila Duarte</strong><div class="who">Abasto · ovo-vegetariana</div></div></div><p>“Por fin un lugar en Once donde no tengo que pedir ‘sin nada’. Todo el menú es apto. El mexicano pica rico y el flan de huevo es obligatorio.”</p><div class="who">★★★★★ · hace 6 días</div></article>
+      <article class="rev rv" style="--i:3"><div class="rev-head"><span class="avatar" style="background:#fff">JO</span><div><strong>Joaquín Otero</strong><div class="who">Flores · delivery semanal</div></div></div><p>“Pido el combo doble los viernes. Llega tibio, el huevo no viene gomoso y las papas aguantan el viaje. Precio imbatible para la zona.”</p><div class="who">★★★★☆ · hace 1 semana</div></article>
+    </div>
+  </div>
+</section>
+
+<!-- VISITANOS -->
+<section id="visitanos" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Vení</div>
+    <h2>Estamos en <em>Once.</em> A 3 cuadras del caos.</h2>
+    <div class="visita-grid">
+      <div class="info-card rv">
+        <div class="info-row">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D93A0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div><h4>Av. Rivadavia 3085, Balvanera</h4><p>Entre Agüero y Sánchez de Bustamante. Frente a la parada del 132. Subte A (Miserere) y tren Sarmiento (Once) a 4 minutos a pie.</p></div>
+        </div>
+        <div class="info-row">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D93A0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <div><h4>Lun a Dom · 12 a 23 h</h4><p>Vie y Sáb hasta las 00 h. Cocina abierta todo el día, sin corte. Happy eggcho (2do al -15%) de 15 a 18 h.</p></div>
+        </div>
+        <div class="info-row">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D93A0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.5-7"/><path d="M8 12h8M12 8v8"/></svg>
+          <div><h4>Pedidos y reservas</h4><p>WhatsApp <strong>11 0000 0000</strong> · Instagram <strong>@eggchos.once</strong> · Take away y delivery en la zona.</p></div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px">
+          <a class="btn btn-primary magnetic" href="https://www.google.com/maps/search/?api=1&query=Av.+Rivadavia+3085+Buenos+Aires" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn btn-ghost magnetic" href="https://wa.me/5491100000000" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="map-card rv" style="--i:1">
+        <iframe title="Mapa Once Buenos Aires" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-58.4125%2C-34.6065%2C-58.3985%2C-34.5985&layer=mapnik&marker=-34.6025%2C-58.4055"></iframe>
+        <div class="map-foot"><span class="mono" style="font-size:.8rem">PLAZA MISERERE · 400 MTS</span><span style="font-weight:700">Buscá el toldo amarillo con el huevo con gorra</span></div>
+      </div>
+    </div>
+
+    <div class="faq rv">
+      <button class="faq-q">¿Tiene carne en algún lado? <span class="ic">+</span></button>
+      <div class="faq-a"><p>No. Nada del menú lleva carne, pollo, pescado ni caldos. Solo huevo, lácteos, pan y vegetales. La plancha es exclusiva para huevo.</p></div>
+    </div>
+    <div class="faq rv" style="border-radius:0 0 28px 28px; border-top:0; margin-top:0">
+      <div class="faq-item"><button class="faq-q">Soy vegano, ¿puedo comer algo? <span class="ic">+</span></button><div class="faq-a"><p>Hoy somos ovo-vegetarianos, no veganos: usamos huevo y lácteos en todo. El mexicano se puede pedir sin queso ni crema, pero el huevo es la base y no se reemplaza.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Puedo entrar con mi perro grande? <span class="ic">+</span></button><div class="faq-a"><p>Sí. No hay límite de tamaño. Tenemos correas cortas de cortesía en la barra, bebederos y patio. Solo pedimos que quede con correa y que avises si es reactivo para ubicarte mejor.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Hay opción sin TACC? <span class="ic">+</span></button><div class="faq-a"><p>Sí, con pan apto y toppings sin contaminación cruzada básica. No somos cocina 100% libre de gluten, así que si tenés celiaquía severa avisanos al pedir y te contamos el protocolo del día.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Hacen delivery? <span class="ic">+</span></button><div class="faq-a"><p>En Once, Balvanera, Abasto y Almagro por WhatsApp directo (más barato que las apps). En el resto de CABA estamos en las apps de siempre.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final rv">
+      <div>
+        <div class="kicker" style="color:var(--ketchup-dark)">Hoy hasta las 23 h</div>
+        <h2>Salí del trabajo, pasá por Once y probá el <em style="color:var(--ketchup-dark)">eggcho.</em></h2>
+        <p class="sub" style="color:#4d2a10">Si no te gusta, te devolvemos la plata y te pedimos disculpas en voz alta. Nunca pasó, pero la promesa sigue en pie.</p>
+      </div>
+      <div class="final-btns">
+        <a href="https://wa.me/5491100000000?text=Hola%20eggchos!%20Voy%20en%20camino" target="_blank" rel="noopener" class="btn btn-primary magnetic" style="font-size:1.05rem; padding:18px 30px">Pedir para retirar</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Av.+Rivadavia+3085+Buenos+Aires" target="_blank" rel="noopener" class="btn magnetic" style="background:#fff; font-size:1.05rem; padding:18px 30px">Cómo llegar</a>
+        <span class="mono" style="font-size:.78rem; letter-spacing:.1em">AV. RIVADAVIA 3085 · LUN-DOM 12-23 H</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span><strong style="font-family:Fraunces,serif; font-size:1.2rem; color:var(--ink)">eggchos</strong> · V1 Clásica Panchera · Once, Buenos Aires · T&T desde 2026 · <a href="index.html">← Portal</a> · <a href="eggchos-v2.html">V2</a> · <a href="eggchos-v3.html">V3</a></span>
+    <span><a href="#menu">Menú</a> · <a href="#visitanos">Vení</a> · <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></span>
+    <span class="mono" style="font-size:.75rem">© <span id="y">2026</span> EGGCHOS · HECHO CON HUEVO EN ONCE</span>
+  </div>
+</footer>
+
+<script>
+// year
+document.getElementById('y').textContent = new Date().getFullYear();
+// burger
+const nav = document.getElementById('nav');
+document.getElementById('burger').addEventListener('click', ()=> nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> nav.classList.remove('open')));
+// reveal
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=> io.observe(el));
+// faq
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const ans = btn.nextElementSibling;
+    const open = ans.style.maxHeight && ans.style.maxHeight !== '0px';
+    document.querySelectorAll('.faq-a').forEach(a=> a.style.maxHeight = '0px');
+    document.querySelectorAll('.faq-q .ic').forEach(i=> i.textContent = '+');
+    if(!open){ ans.style.maxHeight = ans.scrollHeight + 'px'; btn.querySelector('.ic').textContent = '–'; }
+  });
+});
+// magnetic buttons (rAF, transform only)
+const fine = window.matchMedia('(pointer:fine)').matches;
+if(fine){
+  document.querySelectorAll('.magnetic').forEach(el=>{
+    let raf = null;
+    el.addEventListener('mousemove', (e)=>{
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      if(raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(()=>{ el.style.transform = `translate(${x*.12}px, ${y*.14}px)`; });
+    });
+    el.addEventListener('mouseleave', ()=>{
+      if(raf) cancelAnimationFrame(raf);
+      el.style.transform = '';
+    });
+  });
+  // tilt hero
+  const tilt = document.getElementById('tilt');
+  if(tilt){
+    tilt.addEventListener('mousemove', (e)=>{
+      const r = tilt.getBoundingClientRect();
+      const rx = ((e.clientY - r.top)/r.height - .5) * -8;
+      const ry = ((e.clientX - r.left)/r.width - .5) * 10;
+      tilt.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+    tilt.addEventListener('mouseleave', ()=>{ tilt.style.transform=''; });
+  }
+}
+</script>
+</body>
+</html>

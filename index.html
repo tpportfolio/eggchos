@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eggchos — Elegí tu versión</title>
+<meta name="description" content="Portal eggchos Once: 3 versiones de landing para panchos de huevo revuelto. Pet-friendly y ovo-vegetariano.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="a_Retro_mascot_emblem_.jpeg">
+<style>
+:root{--cream:#FFF6E3; --paper:#FFFEF7; --ink:#211304; --muted:#6B5C44; --line:#E9DCC0; --yolk:#FFB300; --red:#D93A0B; --green:#2F7A4D; --ease:cubic-bezier(.16,1,.3,1); --max:1200px}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0; background:var(--cream); color:var(--ink); font-family:'Outfit',sans-serif; -webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 clamp(18px,4vw,40px)}
+.mono{font-family:'JetBrains Mono',monospace}
+header{padding:clamp(36px,6vw,72px) 0 10px; text-align:left}
+.eyebrow{display:inline-block; border:2px solid var(--ink); background:var(--paper); border-radius:999px; padding:8px 16px; font-size:.75rem; font-weight:800; letter-spacing:.12em; box-shadow:3px 3px 0 var(--ink)}
+h1{font-family:'Fraunces',serif; font-weight:900; letter-spacing:-.045em; line-height:.92; font-size:clamp(2.6rem,6vw,4.8rem); margin:18px 0 12px}
+h1 em{font-style:italic; color:var(--red)}
+.sub{color:#5a4d38; max-width:68ch; line-height:1.65; font-size:1.05rem}
+.grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin:26px 0}
+.card{background:var(--paper); border:2.5px solid var(--ink); border-radius:26px; overflow:hidden; display:flex; flex-direction:column; transition:transform .45s var(--ease), box-shadow .45s var(--ease); text-decoration:none; color:var(--ink)}
+.card:hover{transform:translateY(-5px) rotate(-.3deg); box-shadow:8px 8px 0 var(--ink)}
+.card img{width:100%; height:230px; object-fit:cover; border-bottom:2.5px solid var(--ink)}
+.card.dark img{filter:saturate(1.05)}
+.card .body{padding:20px 22px 22px; display:flex; flex-direction:column; gap:10px; flex:1}
+.card .num{font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.16em; color:var(--red); font-weight:700}
+.card h2{font-family:'Fraunces',serif; font-size:1.7rem; letter-spacing:-.03em; margin:0; line-height:1}
+.card p{margin:0; color:#5a4d38; font-size:.94rem; line-height:1.6}
+.go{margin-top:auto; display:inline-flex; align-items:center; gap:8px; font-weight:800; background:var(--yolk); border:2px solid var(--ink); border-radius:999px; padding:12px 20px; min-height:48px; justify-content:center}
+.card.dark .go{background:var(--ink); color:var(--cream)}
+.prices{background:var(--ink); color:var(--cream); border-radius:26px; padding:clamp(22px,3.5vw,36px); margin:8px 0 26px; border:2.5px solid var(--ink); box-shadow:6px 6px 0 var(--yolk)}
+.prices h2{font-family:'Fraunces',serif; color:var(--cream); margin:0 0 6px; font-size:1.6rem; letter-spacing:-.02em}
+.prices h2 em{color:var(--yolk)}
+.prow{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:16px}
+.pbox{border:1px solid rgba(255,246,227,.25); border-radius:18px; padding:16px}
+.pbox b{font-family:'Fraunces',serif; font-size:1.4rem}
+.pbox p{color:#C9B895; font-size:.88rem; line-height:1.6; margin:6px 0 0}
+.pbox .mono{color:var(--yolk); font-size:.75rem}
+.legend{background:var(--paper); border:2px solid var(--ink); border-radius:20px; padding:18px 20px; font-size:.9rem; color:#5a4d38; line-height:1.7}
+.legend b{color:var(--ink)}
+footer{padding:20px 0 36px; color:#6b5e46; font-size:.88rem}
+.foot{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; border-top:2px solid var(--ink); padding-top:14px}
+@media(max-width:940px){.grid,.prow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script src="gate.js"></script>
+<header class="wrap">
+  <span class="eyebrow">EGGCHOS · ONCE · 3 PROPUESTAS · MISMO POSICIONAMIENTO</span>
+  <h1>Un eggcho, <em>tres formas de contarlo.</em></h1>
+  <p class="sub">Mismo producto y mismos precios en las 3 versiones: base <strong>$8.000 / $8.500 / $9.000</strong> según topping, premium caseros <strong>+$1.500</strong> (chutney, relish, hummus), combo <strong>$15.000</strong>, doble + 2 bebidas <strong>$16.700</strong> (promo parejas), extra huevo-salchicha <strong>$2.000</strong>, bebidas desde <strong>$4.000</strong>, postre desde <strong>$5.000</strong>. Todo ovo-vegetariano, con detalle sin TACC. Elegí qué tono te representa y entrá.</p>
+</header>
+<main class="wrap">
+  <div class="grid">
+    <a class="card" href="eggchos-v1.html">
+      <img src="b_generá_un_logo_color.png" alt="V1 mascota eggchos clásica">
+      <div class="body"><span class="num">V1 · CLÁSICA PANCHERA</span><h2>La de siempre, bien Once</h2><p>Hero split con mascota, pasos, menú bento y banda pet-friendly. Tono panchera de barrio, cálida y directa. La más parecida a Matts.</p><span class="go">Entrar a la V1 →</span></div>
+    </a>
+    <a class="card dark" href="eggchos-v2.html">
+      <img src="a_A_playful_1930s_rubb.png" alt="V2 carta apetitosa amarilla">
+      <div class="body"><span class="num">V2 · CARTA APETITOSA · AMARILLO HUEVO + NARANJA</span><h2>Doble huevo, cero carne.</h2><p>Fondo flat egg-yolk yellow y naranja vibrante, foco 100% craveo: cheddar que cae, pan con manteca, papas croc. Con premium y barra de pedido.</p><span class="go">Entrar a la V2 →</span></div>
+    </a>
+    <a class="card" href="eggchos-v3.html">
+      <img src="a_Retro_mascot_emblem_.jpeg" alt="V3 cocina de origen">
+      <div class="body"><span class="num">V3 · HUERTA · CANTINA VERDE</span><h2>Fresco, rico y saludable: eggchos.</h2><p>Mundo verde pino sobre crema: tres frascos caseros al frente, carta con filtro por dieta, ticket de combos y patio para perros. Lo más distinto de las tres.</p><span class="go">Entrar a la V3 →</span></div>
+    </a>
+  </div>
+
+  <div class="prices">
+    <h2>Lógica de precios <em>(igual en las 3)</em></h2>
+    <p style="color:#C9B895; margin:0; line-height:1.6">Escalón por costo real del topping. El combo cierra en número redondo y la promo doble es gancho de parejas.</p>
+    <div class="prow">
+      <div class="pbox"><span class="mono">BASE</span><br><b>$8.000 · $8.500 · $9.000</b><p>Clásico $8.000 · Con queso fundido (cheddar/criollo) $8.500 · Mexicano $9.000 (guacamole + jalapeños, insumo más caro). Pan SG +$1.000.</p></div>
+      <div class="pbox"><span class="mono">COMBOS</span><br><b>$15.000 · $16.700</b><p>Single: base ($8–9k) + papas ($3k) + bebida ($4k) = $15–16k → cerrado $15.000. Doble parejas: 2 clásicos + 2 bebidas ($24.000) → promo $16.700, sin papas.</p></div>
+      <div class="pbox"><span class="mono">EXTRAS · PREMIUM</span><br><b>+$1.500 · +$2.000</b><p>Chutney casero, relish de pepinos y hummus batido a diario: +$1.500 c/u (los 3 OV y SG). Extra huevo-salchicha $2.000. Bebidas desde $4.000. Flan desde $5.000.</p></div>
+    </div>
+  </div>
+
+  <div class="legend"><b>Leyenda usada en las 3 versiones:</b> <span class="mono" style="font-size:.78rem">OV = apto ovo-vegetariano</span> · <span class="mono" style="font-size:.78rem">SG = apto celíacos (sin TACC)</span> · Todo el menú es OV. Son SG: huevo base, quesos, vegetales frescos <strong>y los 3 premium (chutney, relish, hummus)</strong>. Son SG* (consultar marca): mostaza, ketchup, barbacoa, mayo. Tienen gluten: pan común, papas pay, cebolla crispy, flan. Cerveza no es SG; agua, gaseosa y limonada sí.</div>
+</main>
+<footer><div class="wrap foot"><span><strong>eggchos</strong> · Portal · T&T desde 2026 · Once, Buenos Aires</span><span class="mono" id="y">© 2026</span></div></footer>
+<script>document.getElementById('y').textContent='© '+new Date().getFullYear()+' EGGCHOS ONCE';</script>
+</body>
+</html>
